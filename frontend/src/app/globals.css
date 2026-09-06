@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* New palette */
+  --slate-darkest: #212A31;
+  --slate-dark:    #2E3944;
+  --teal:          #124E66;
+  --slate-mid:     #748D92;
+  --slate-light:   #D3D9D4;
+
+  /* Legacy aliases kept for IntroGate orb */
+  --gold:          #f5d03c;
+  --purple:        #7c3aed;
+
+  --dark: #212A31;
+  --font-cinzel: 'Cinzel', serif;
+  --font-inter:  'Inter', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0; padding: 0;
+  background: var(--dark);
+  color: var(--slate-light);
+  font-family: var(--font-inter);
+  overflow: hidden;
+  height: 100%; width: 100%;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(18,78,102,0.5); border-radius: 2px; }
+
+/* ── Glass morphism ── */
+.glass {
+  background: rgba(46,57,68,0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(211,217,212,0.08);
+}
+
+.glass-teal {
+  background: rgba(18,78,102,0.18);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(18,78,102,0.35);
+}
+
+/* kept for IntroGate */
+.glass-gold {
+  background: rgba(245,208,60,0.06);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(245,208,60,0.15);
+}
+
+/* ── Shimmer text ── */
+.text-shimmer {
+  background: linear-gradient(90deg, #748D92, #D3D9D4, #ffffff, #D3D9D4, #748D92);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+/* kept for IntroGate */
+.text-gold-shimmer {
+  background: linear-gradient(90deg, #c9a227, #f5d03c, #ffd700, #f5d03c, #c9a227);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+/* ── Glow ── */
+.glow-teal   { filter: drop-shadow(0 0 12px rgba(18,78,102,0.8)); }
+.glow-gold   { filter: drop-shadow(0 0 12px rgba(245,208,60,0.8)); }
+.glow-purple { filter: drop-shadow(0 0 12px rgba(124,58,237,0.8)); }
+
+/* ── Orb (intro gate, kept gold/purple for cinematic feel) ── */
+.orb-core {
+  background: radial-gradient(circle at 35% 35%,
+    rgba(255,215,0,0.9)   0%,
+    rgba(245,208,60,0.7) 25%,
+    rgba(18,78,102,0.5)  55%,
+    rgba(18,78,102,0.8)  80%,
+    rgba(8,40,60,0.9)   100%
+  );
+}
+
+/* ── Spotify-style sentence states ── */
+.sentence-past {
+  color: #748D92;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  transition: all 0.4s ease;
+}
+
+.sentence-active {
+  color: #D3D9D4;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.6;
+  border-left: 3px solid #124E66;
+  padding-left: 12px;
+  transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+.sentence-future {
+  color: rgba(211,217,212,0.35);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  transition: all 0.4s ease;
+}
+
+/* ── Progress bar ── */
+.progress-teal {
+  background: linear-gradient(90deg, #124E66, #748D92);
+  border-radius: 4px;
+  transition: width 0.1s linear;
+}
+
+/* ── Waveform bars ── */
+.wave-bar {
+  width: 3px; border-radius: 2px;
+  background: linear-gradient(to top, var(--teal), var(--slate-mid));
+  transform-origin: bottom;
+  animation: waveform 1.2s ease-in-out infinite;
+}
+
+@keyframes waveform {
+  0%, 100% { transform: scaleY(0.25); }
+  50%       { transform: scaleY(1); }
+}
+
+/* ── Unlock burst ring (IntroGate) ── */
+.burst-ring {
+  position: absolute; border-radius: 50%;
+  border: 2px solid var(--gold);
+  animation: burstRing 0.8s ease-out forwards;
+}
+
+@keyframes burstRing {
+  0%   { transform: scale(0); opacity: 1; }
+  100% { transform: scale(8); opacity: 0; }
+}
+
+/* ── Scrollable areas ── */
+.scroll-area {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(18,78,102,0.5) transparent;
+}
+
+/* ── Elastic slider track ── */
+.elastic-track {
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(116,141,146,0.2);
+  position: relative;
+  cursor: pointer;
+}
+
+.elastic-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #124E66, #748D92);
+  pointer-events: none;
+}
+
+/* ── Glass icon button ── */
+.glass-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  background: rgba(46,57,68,0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(211,217,212,0.08);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  color: #748D92;
+}
+
+.glass-icon-btn:hover {
+  background: rgba(18,78,102,0.25);
+  border-color: rgba(18,78,102,0.5);
+  color: #D3D9D4;
+  box-shadow: 0 0 20px rgba(18,78,102,0.3);
+}
+
+.glass-icon-btn.active {
+  background: rgba(18,78,102,0.35);
+  border-color: rgba(18,78,102,0.6);
+  color: #D3D9D4;
+  box-shadow: 0 0 24px rgba(18,78,102,0.4);
+}

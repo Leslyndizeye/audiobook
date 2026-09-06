@@ -1,0 +1,30 @@
+# Python
+backend/venv/
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+.env.*
+
+# Database
+*.db
+
+# Generated/uploaded files
+backend/uploads/
+backend/audio_output/
+uploads/
+audio_output/
+
+# Node
+frontend/node_modules/
+frontend/.next/
+frontend/dist/
+frontend/build/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
