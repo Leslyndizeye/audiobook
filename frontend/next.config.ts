@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
 
   async rewrites() {
     // BACKEND_URL is server-side only — never exposed to browser
-    const backendUrl = process.env.BACKEND_URL || 'http://localhost:8000';
+    const backendUrl = process.env.BACKEND_URL || 'https://audiobook-fjuk.onrender.com/';
     return [
       { source: '/api/:path*', destination: `${backendUrl}/:path*` },
     ];
